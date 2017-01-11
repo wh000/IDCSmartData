@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dashboard',
+    'chartit',
 ]
 
 
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'idcsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'dashboard\\templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'idc',
         'USER': 'root',
-        'PASSWORD': 'idcpassword1',
+        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
     }
 }

@@ -1,0 +1,56 @@
+{% block title %}IDC{% endblock %}
+{% load staticfiles %}
+<!-- {% load static %} -->
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/home.css'  %}" />
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+{% endblock %}
+
+<head>
+    <!-- code to include the highcharts and jQuery libraries goes here -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/jquery-3.1.1.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashboard/js/home.js' %}"></script>
+    <!-- load_charts filter takes a comma-separated list of id's where -->
+    <!-- the charts need to be rendered to                             -->
+    {% load chartit %}
+    {{ temp_chart|load_charts:"mpn1_temp" }}
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <a href="#">IDC1</a>
+	  <a href="#">MPN1</a>
+	  <a href="#">Buckminster</a>
+	  <a href="#">Gutenberg</a>
+	  <a href="#">Steve Jobs</a>
+	</div>
+    <div id='main'>
+    	<span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Navigate Rooms</span>
+		<ul class="tab">
+		  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'temp')">Temp</a></li>
+		  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'lux')">Lux</a></li>
+		  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'humidity')">Humidity</a></li>
+		</ul>
+
+		<div id="temp" class="w3-container tabcontent">
+		  <p class="w3-text-black">Temperature of the room over the past month</p>
+		  <div id="mpn1_temp"></div>
+		</div>
+
+		<div id="lux"class="tabcontent">
+		  <h3>MPN 1</h3>
+		  <p id="mpn1_lux"></p> 
+		</div>
+
+		<div id="humidity" class="tabcontent">
+		  <h3>Tokyo</h3>
+		  <p>Tokyo is the capital of Japan.</p>
+		</div>
+
+	</div>
+</body>

@@ -1,0 +1,65 @@
+{% block title %}IDC{% endblock %}
+{% load staticfiles %}
+<!-- {% load static %} -->
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/home.css'  %}" />
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+{% endblock %}
+
+<head>
+    <!-- code to include the highcharts and jQuery libraries goes here -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/jquery-3.1.1.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashboard/js/home.js' %}"></script>
+    <!-- load_charts filter takes a comma-separated list of id's where -->
+    <!-- the charts need to be rendered to                             -->
+    {% load chartit %}
+    {% if second_sensor %}
+    	{{ charts|load_charts:"temp_chart,lux_chart,hum_chart,temp_chart2,lux_chart2,hum_chart2" }}
+    {% else %}
+    	{{ charts|load_charts:"temp_chart,lux_chart,hum_chart" }}
+    {% endif %}
+
+    
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <a href="{% url 'dashboard:location_info' 'idc1' %}">IDC1</a>
+	  <a href="{% url 'dashboard:location_info' 'mpn1' %}">MPN1</a>
+	  <a href="{% url 'dashboard:location_info' 'buckminster' %}">Buckminster</a>
+	  <a href="{% url 'dashboard:location_info' 'gutenberg' %}">Gutenberg</a>
+	  <a href="{% url 'dashboard:location_info' 'stevejobs' %}">Steve Jobs</a>
+	</div>
+    <div id='main'>
+    	<span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; Navigate Rooms</span>
+		<ul class="tab">
+		  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'temp')">Temp</a></li>
+		  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'lux')">Lux</a></li>
+		  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'humidity')">Humidity</a></li>
+		</ul>
+
+		<div id="temp" class="w3-container tabcontent">
+		  <p class="w3-text-black">Temperature of the room over the past month</p>
+		  <p id="temp_chart"></p>
+		  <div id="temp_chart2"></div>
+		</div>
+
+		<div id="lux"class="tabcontent">
+		  <h3>Lux Measurements</h3>
+		  <p id="lux_chart"></p>
+		  <div id="lux_chart2"></div> 
+		</div>
+
+		<div id="humidity" class="tabcontent">
+		  <h3>Relative Humidity</h3>
+		  <p id="hum_chart"></p>
+		  <p id="hum_chart2"></p>
+		</div>
+
+	</div>
+</body>
