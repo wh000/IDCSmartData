@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'idc',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': 'idcpassword1',
         'HOST': '127.0.0.1',
     }
 }
@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Singapore'
+TIME_ZONE = 'Asia/Singapore'
 
 USE_I18N = True
 

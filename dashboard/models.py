@@ -3,6 +3,93 @@ from datetime import datetime
 
 # Create your models here.
 
+class ChartLvl1_Day(models.Model):
+	date = models.DateTimeField()
+	light_duration = models.FloatField()
+	nobody_present = models.FloatField()
+	class Meta:
+		managed = True
+		db_table = 'ChartL1_Day'
+
+class ChartLvl3_Day(models.Model):
+	date = models.DateTimeField()
+	light_duration = models.FloatField()
+	nobody_present = models.FloatField()
+	class Meta:
+		managed = True
+		db_table = 'ChartL3_Day'
+
+class ChartLvl4_Day(models.Model):
+	date = models.DateTimeField()
+	light_duration = models.FloatField()
+	nobody_present = models.FloatField()
+	class Meta:
+		managed = True
+		db_table = 'ChartL4_Day'
+
+class Level1_Stats(models.Model):
+	datetime = models.DateTimeField()
+	pax_count = models.IntegerField()
+	lux_value1 = models.FloatField()
+	lux_value2 = models.FloatField()
+	max_lux = models.FloatField()
+	avg_lux = models.FloatField()
+	present = models.FloatField()
+	absent = models.FloatField()
+	light_duration = models.FloatField()
+	nobody_w_lights = models.FloatField()
+	temp1 = models.FloatField()
+	temp2 = models.FloatField()
+	avg_temp = models.FloatField()
+	humidity1 = models.FloatField()
+	humidity2 = models.FloatField()
+	avg_humidity = models.FloatField()
+	class Meta:
+		managed = True
+		db_table = 'L1_Stats'
+
+class Level3_Stats(models.Model):
+	datetime = models.DateTimeField()
+	pax_count = models.IntegerField()
+	lux_value1 = models.FloatField()
+	lux_value2 = models.FloatField()
+	max_lux = models.FloatField()
+	avg_lux = models.FloatField()
+	present = models.FloatField()
+	absent = models.FloatField()
+	light_duration = models.FloatField()
+	nobody_w_lights = models.FloatField()
+	temp1 = models.FloatField()
+	temp2 = models.FloatField()
+	avg_temp = models.FloatField()
+	humidity1 = models.FloatField()
+	humidity2 = models.FloatField()
+	avg_humidity = models.FloatField()
+	class Meta:
+		managed = True
+		db_table = 'L3_Stats'
+
+class Level4_Stats(models.Model):
+	datetime = models.DateTimeField()
+	pax_count = models.IntegerField()
+	lux_value1 = models.FloatField()
+	lux_value2 = models.FloatField()
+	max_lux = models.FloatField()
+	avg_lux = models.FloatField()
+	present = models.FloatField()
+	absent = models.FloatField()
+	light_duration = models.FloatField()
+	nobody_w_lights = models.FloatField()
+	temp1 = models.FloatField()
+	temp2 = models.FloatField()
+	avg_temp = models.FloatField()
+	humidity1 = models.FloatField()
+	humidity2 = models.FloatField()
+	avg_humidity = models.FloatField()
+	class Meta:
+		managed = True
+		db_table = 'L4_Stats'
+
 class IDCData(models.Model):
 
 	temp = models.FloatField()
