@@ -3,6 +3,68 @@ from datetime import datetime
 
 # Create your models here.
 
+class ChartLvl1_DayNew(models.Model):
+	date = models.DateTimeField()
+	light_duration = models.FloatField()
+	nobody_present = models.FloatField()
+	light_day = models.FloatField()
+	comp_day = models.FloatField()
+	ac_day = models.FloatField()
+	totalkWh_day = models.FloatField()
+	totalBill_day = models.DecimalField(decimal_places=2, max_digits=8)
+	class Meta:
+		managed = True
+		db_table = 'ChartL1_DayNew'
+
+
+class ChartLvl1_Min(models.Model):
+	date = models.DateTimeField()
+	acOn = models.FloatField()
+	userMins = models.FloatField()
+	comp_day = models.FloatField()
+	totalkWh_day = models.FloatField()
+	ac_day = models.FloatField()
+	totalkWh_day = models.FloatField()
+	totalBill_day = models.DecimalField(decimal_places=2, max_digits=8)
+	class Meta:
+		managed = True
+		db_table = 'ChartL1_Min'
+
+
+
+class InfoL1(models.Model):
+	date = models.DateTimeField()
+	annualCO2 = models.IntegerField()
+	roundSg = models.IntegerField()
+	numTree2Plant = models.IntegerField()
+	tnumTreeinYr = models.IntegerField()
+	class Meta:
+		managed = True
+		db_table = 'InfoL1'
+
+
+class ChartLvl1_Yr(models.Model):
+	date = models.DateTimeField()
+	light_duration_Yr = models.FloatField()
+	nobodyDuration_Yr = models.FloatField()
+	totallight_Yr = models.FloatField()
+	totalac_Yr = models.FloatField()
+	totalcomp_Yr = models.FloatField()
+	totalkWh_Yr = models.FloatField()
+	totalBill_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	estlight_duration_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	estnobodyDuration_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	esttotallight_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	esttotalac_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	esttotalcomp_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	esttotalkWh_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	esttotalBill_Yr = models.DecimalField(decimal_places=2, max_digits=8)
+	class Meta:
+		managed = True
+		db_table = 'ChartL1_Yr'
+
+
+
 class ChartLvl1_Day(models.Model):
 	date = models.DateTimeField()
 	light_duration = models.FloatField()
@@ -104,151 +166,3 @@ class IDCData(models.Model):
 		managed = True
 		db_table = 'idcdata'
 
-class MPN1(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'mpn1'
-
-
-class IDC1(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'idc1'
-
-class Gutenberg1(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'gutenberg1'
-
-class Gutenberg2(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'gutenberg2'
-
-class Buckminster1(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'buckminster1'
-
-class Buckminster2(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'buckminster2'						
-
-class SteveJobs1(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'stevejobs1'
-
-class SteveJobs2(models.Model):
-
-	temp = models.FloatField()
-	lux = models.FloatField()
-	rel_humidity = models.FloatField()
-	time_added = models.DateTimeField(auto_now_add=True)
-
-	def __unicode__(self):
-		return str(self.time_added) + ', temp: ' + temp
-
-	class Meta:
-		managed = True
-		db_table = 'stevejobs2'
-
-class Floor1(models.Model):
-
-	time_added = models.DateTimeField(auto_now_add=True)
-	no_of_ppl = models.IntegerField()
-
-	def __unicode__(self):
-		return str(self.time_added) + ', no_of_ppl: ' + no_of_ppl
-
-	class Meta:
-		managed = True
-		db_table = 'floor1'
-
-class Floor3(models.Model):
-
-	time_added = models.DateTimeField(auto_now_add=True)
-	no_of_ppl = models.IntegerField()
-
-	def __unicode__(self):
-		return str(self.time_added) + ', no_of_ppl: ' + no_of_ppl
-
-	class Meta:
-		managed = True
-		db_table = 'floor3'
-
-class Floor4(models.Model):
-
-	time_added = models.DateTimeField(auto_now_add=True)
-	no_of_ppl = models.IntegerField()
-
-	def __unicode__(self):
-		return str(self.time_added) + ', no_of_ppl: ' + no_of_ppl
-
-	class Meta:
-		managed = True
-		db_table = 'floor4'
